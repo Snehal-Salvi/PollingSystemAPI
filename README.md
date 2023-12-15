@@ -58,7 +58,7 @@ An API where anyone can create questions with options and also add votes to it.
 ## Project Setup
 
 ### 1. Clone the Repository
-- 
+- https://github.com/Snehal-Salvi/PollingSystemAPI
 ### 2. Install Dependencies
 -  npm install
 
