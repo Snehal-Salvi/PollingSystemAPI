@@ -1,0 +1,208 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "version": "1.0.0",
+      "description": "API for creating Questions and Options",
+      "title": "Polling System"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:8000"
+      }
+    ],
+    "paths": {
+        "/api/questions/{questionId}": {
+            "get": {
+              "tags": ["Question"],
+              "summary": "Get Question by ID",
+              "description": "Retrieve a specific Question by its ID",
+              "parameters": [
+                {
+                  "name": "questionId",
+                  "in": "path",
+                  "required": true,
+                  "schema": {
+                    "type": "string"
+                  },
+                  "description": "ID of the Question to retrieve"
+                }
+              ],
+              "responses": {
+                "200": {
+                  "description": "OK"
+                },
+                "404": {
+                  "description": "Question not found"
+                },
+                "500": {
+                  "description": "Internal Server Error"
+                }
+              }
+            }
+          },
+      "/api/questions/create": {
+        "post": {
+          "tags": ["Question"],
+          "summary": "Create a Question",
+          "description": "Create a Question",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
+
+      "/api/questions/{questionId}/delete": {
+        "delete": {
+          "tags": ["Question"],
+          "summary": "Delete a Question",
+          "description": "Delete a Question by its ID",
+          "parameters": [
+            {
+              "name": "questionId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              },
+              "description": "ID of the Question to delete"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "404": {
+              "description": "Question not found"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
+      
+      "/api/options/{questionId}/create": {
+        "post": {
+          "tags": ["Options"],
+          "summary": "Create an Option",
+          "description": "Create an Option for a Question",
+          "parameters": [
+            {
+              "name": "questionId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              },
+              "description": "ID of the Question for which to create an Option"
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "text": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
+
+      "/api/options/{optionId}/add_vote": {
+        "get": {
+          "tags": ["Options"],
+          "summary": "Add a Vote to an Option",
+          "description": "Increment the vote count for an Option by its ID",
+          "parameters": [
+            {
+              "name": "optionId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              },
+              "description": "ID of the Option to add a vote to"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Vote incremented successfully"
+            },
+            "404": {
+              "description": "Option not found"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
+      
+
+      "/api/options/{optionId}/delete": {
+        "delete": {
+          "tags": ["Options"],
+          "summary": "Delete an Option",
+          "description": "Delete an Option by its ID",
+          "parameters": [
+            {
+              "name": "optionId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              },
+              "description": "ID of the Option to delete"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "404": {
+              "description": "Option not found"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      }
+      
+      
+    }
+  }
+  
