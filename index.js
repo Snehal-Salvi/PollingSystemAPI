@@ -21,11 +21,11 @@ server.use("/api/options", optionRouter);
 
 
 server.get("/",(req,res) => {
-    res.send("Welcome to polling system API. Please look documentaion of how to use API at http://localhost:8000/api-docs");
+    res.send("Welcome to polling system API. Please look documentaion of how to use API at https://pollingsystemapi-wur1.onrender.com/api-docs");
 });
 
 server.use((req,res) => {
-    res.status(404).send("API Not Found. Please look documentaion of how to use API at http://localhost:8000/api-docs");
+    res.status(404).send("API Not Found. Please look documentaion of how to use API at https://pollingsystemapi-wur1.onrender.com/api-docs");
   })
 
 
