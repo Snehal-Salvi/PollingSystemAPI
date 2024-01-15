@@ -53,7 +53,7 @@ An API where anyone can create questions with options and also add votes to it.
 ## Add Vote
 
 - **Request Type:** GET
-- **URL:** http://localhost:8000/api/options/:optionID/add_vote
+- **URL:** https://pollingsystemapi-wur1.onrender.com/api-docs
 
 ## Project Setup
 
