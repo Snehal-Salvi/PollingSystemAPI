@@ -2,7 +2,7 @@ import "./env.js"
 import express from 'express';
 import bodyParser from 'body-parser';
 import swagger from "swagger-ui-express";
-import apiDocs from "./swagger.json" assert {type:'json'};
+import apiDocs from "./swagger.json" with { type: "json" };
 import { connectToDb } from "./config/mongoose.js";
 import questionRouter from "./src/routes/questions.routes.js";
 import optionRouter from "./src/routes/options.routes.js";
